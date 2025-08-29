@@ -6,3 +6,6 @@ requests
 Pillow
 razorpay
 setuptools
+cloudinary
+django-cloudinary-storage
+python-dotenv
