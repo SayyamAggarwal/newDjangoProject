@@ -17,7 +17,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 x=os.path.join(BASE_DIR,'templates')
 MEDIA_DIR=os.path.join(BASE_DIR,"MEDIA_DIR")
-STATIC_DIR=os.path.join(BASE_DIR,"Static")
+STATIC_DIR=os.path.join(BASE_DIR,"staticfiles")
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-0d*gtlo4*r_hc#n3)d(xhqeu0bs569wck%vk)%8a6*qy%7mm5a
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-STATIC_ROOT=os.path.join(BASE_DIR,"staticfiles")
+STATIC_ROOT=os.path.join(BASE_DIR,"Static")
 STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ALLOWED_HOSTS = ["*",'125.62.127.5','localhost','127.0.0.1']
@@ -48,9 +48,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     
     "django.contrib.auth.middleware.AuthenticationMiddleware",
