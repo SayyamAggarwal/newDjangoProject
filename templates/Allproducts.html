@@ -1,0 +1,104 @@
+{% include 'navbar.html' %}
+
+<style>
+    .btn-cart-btn.full-cart-btn {
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 24px;
+        box-shadow: 0 6px 15px rgba(255, 126, 95, 0.5);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+    .btn-cart-btn.full-cart-btn:hover {
+        background: linear-gradient(135deg, #feb47b, #ff7e5f);
+        box-shadow: 0 8px 20px rgba(255, 126, 95, 0.7);
+        transform: translateY(-3px);
+    }
+
+    .btn-view-more.custom-view-btn {
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 24px;
+        box-shadow: 0 6px 15px rgba(0, 114, 255, 0.5);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+    .btn-view-more.custom-view-btn:hover {
+        background: linear-gradient(135deg, #0072ff, #00c6ff);
+        box-shadow: 0 8px 20px rgba(0, 114, 255, 0.7);
+        transform: translateY(-3px);
+    }
+
+    .bg-burlywood {
+        background-color: #deb887;
+    }
+    .shadow {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+    h2 {
+        color: #3e2c14;
+        text-shadow: 1px 1px rgba(255, 255, 255, 0.3);
+    }
+    p.text-dark {
+        color: #4e3b1f !important;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+</style>
+
+<body>
+<div class="row">
+    <div class="col-md-12 text-center py-5 bg-burlywood shadow rounded-3">
+        <h2 class="fw-bold mb-2">🛍 All Products</h2>
+        <p class="text-dark">Home / Products</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row g-4">
+        {% for i in data %}
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm rounded-4 overflow-hidden">
+                <a href="{% url 'detailproduct' id=i.id %}">
+                    <img src="{{i.Image.url}}" class="card-img-top img-fluid" alt="{{i.name}}" style="object-fit: cover; height: 200px;">
+                </a>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">{{i.name}}</h5>
+                    <p class="card-text mb-2">
+                        <span class="text-primary fw-semibold">₹{{i.price}}</span><br>
+                        <span class="text-muted">Available: {{i.quantity}}</span>
+                    </p>
+
+                    <form action="/add_to_cart" method="POST" class="w-100 mt-auto d-flex flex-column gap-2">
+                        {% csrf_token %}
+                        <input type="hidden" name="Product" value="{{i.id}}">
+                        <input type="hidden" name="quantity" value="1">
+
+                        <button type="submit" class="btn-cart-btn full-cart-btn w-100">
+                            🛒 Add to Cart
+                        </button><br>
+                    </form>
+
+                    <a href="{% url 'detailproduct' id=i.id %}" class="btn btn-view-more custom-view-btn w-100">View More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'footer2.html' %}
+</body>
+
+
+

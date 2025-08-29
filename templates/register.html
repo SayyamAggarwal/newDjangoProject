@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .form-container h1 {
+            margin-bottom: 20px;
+            color: #ff7e5f;
+        }
+        .form-container label {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #fcb69f;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .form-container input:focus {
+            border-color: #ff7e5f;
+        }
+        .form-container button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .form-container button:hover {
+            background: linear-gradient(135deg, #feb47b, #ff7e5f);
+        }
+        .login-link {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #333;
+        }
+        .login-link a {
+            color: #ff7e5f;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <h1>Register</h1>
+            <label>Name</label>
+            <input type="text" name="n" required>
+            
+            <label>Email</label>
+            <input type="email" name="e" required>
+            
+            <label>Password</label>
+            <input type="password" name="p" required>
+            
+            <label>Confirm Password</label>
+            <input type="password" name="c" required>
+            
+            <button type="submit">Register</button>
+        </form>
+        <div class="login-link">
+            Already registered? 
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+        {% if msg %}
+        <script>
+            alert("{{msg}}")
+        </script>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+{% include 'navbar.html' %}
+
+<style>
+  body {
+    background: linear-gradient(135deg, #f9f4ef, #fbe4d8);
+    background-attachment: fixed;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+  }
+  .product-card {
+    max-width: 420px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #fffaf4, #f0dfc5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+  }
+  .product-card h1 {
+    font-size: 28px;
+    color: #2c1c0f;
+    margin-bottom: 12px;
+  }
+  .product-card p {
+    font-size: 18px;
+    color: #5a3e27;
+    margin: 5px 0;
+  }
+  .product-card img {
+    width: 95%;
+    height: auto;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+  }
+  .product-card img:hover {
+    transform: scale(1.05);
+  }
+  .qty-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .qty-selector button {
+    background: #d2915f;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .qty-selector button:hover {
+    background: #b5764e;
+  }
+  .qty-selector input {
+    width: 60px;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+    outline: none;
+    background: #fff;
+  }
+  .add-cart-btn {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(255, 126, 95, 0.4);
+    transition: all 0.3s ease;
+  }
+  .add-cart-btn:hover {
+    background: linear-gradient(135deg, #ff5e3a, #ff9966);
+    box-shadow: 0 12px 25px rgba(255, 126, 95, 0.6);
+  }
+</style>
+
+<body>
+  <div class="row">
+    <div class="col-md-12 text-center py-5 bg-burlywood shadow rounded-3">
+      <h2 class="fw-bold mb-2">🛍 All Products</h2>
+      <p class="text-dark">Home / Products</p>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <h1>{{ data.name }}</h1>
+    <p><strong>Price:</strong> {{ data.price }}</p>
+    <p><strong>Available Quantity:</strong> {{ data.quantity }}</p>
+    <p><strong>Company:</strong> {{ data.company }}</p>
+    <img src="{{ data.Image.url }}" alt="{{ data.name }}">
+
+    <div class="qty-selector">
+      <button onclick="updateQuantity(-1)">−</button>
+      <input id="qtyInput" type="text" value="1" readonly>
+      <button onclick="updateQuantity(1)">+</button>
+    </div>
+
+    <button class="add-cart-btn">🛒 Add to Cart</button>
+  </div>
+
+  <script>
+    function updateQuantity(change) {
+      const qtyInput = document.getElementById('qtyInput');
+      let current = parseInt(qtyInput.value);
+      if (!isNaN(current)) {
+        current += change;
+        if (current < 1) current = 1;
+        qtyInput.value = current;
+      }
+    }
+  </script>
+</body>
+
+{% include 'footer2.html' %}
+
+
+
+

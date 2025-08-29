@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="">
+   {% csrf_token %}
+   <h1>heading</h1>
+   <label>title</label>
+   <input type="text" name="t"><br><br>
+   <label>msg</label>
+   <textarea name="m"></textarea><br><br>
+   
+<button type="submit">add</button>
+
+
+    </form>
+    {% if msg %}
+    <script>
+        alert("{{msg}}")
+    </script>
+     {% endif %}
+</body>
+</html>

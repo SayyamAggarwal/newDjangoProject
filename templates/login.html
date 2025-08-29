@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .login-card {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .login-card h1 {
+      margin-bottom: 30px;
+      color: #ff7e5f;
+      font-weight: bold;
+    }
+    .form-control {
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .btn-custom {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+      background: linear-gradient(135deg, #feb47b, #ff7e5f);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(255, 126, 95, 0.5);
+    }
+    label {
+      float: left;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    .register-link {
+      margin-top: 20px;
+    }
+    .logo {
+      width: 200px; /* Adjust size as needed */
+    }
+    .forgot-password {
+      text-align: right;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+    .forgot-password a {
+      font-size: 14px;
+      color: #ff7e5f;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <img src="data:image/png;base64,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"  alt="Furniture Logo" class="logo">
+
+    <form method="POST" action="">
+      {% csrf_token %}
+      <h1>Login Page</h1>
+      <div class="mb-3 text-start">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="e" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-1 text-start">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="p" id="password" placeholder="Enter your password" required>
+      </div>
+      <div class="forgot-password">
+        <a href="forgot_password">Forgot Password?</a>
+      </div>
+      <button type="submit" class="btn btn-custom w-100">Login</button>
+    </form>
+
+    <div class="register-link">
+      <p>Not registered yet?</p>
+      <a href="register" class="btn btn-custom w-100">Register</a>
+    </div>
+
+    {% if msg %}
+    <script>
+        alert("{{msg}}")
+    </script>
+    {% endif %}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

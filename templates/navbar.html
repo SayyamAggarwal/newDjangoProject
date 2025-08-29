@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dhawan's Furniture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5dc; /* Beige background */
+      }
+
+      .navbar-custom {
+        background-color: #deb887; /* Burlywood */
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: #3e2c14 !important;
+      }
+
+      .nav-link {
+        color: #3e2c14 !important;
+        font-weight: bold;
+        padding: 0.6rem 1rem;
+        transition: 0.3s ease;
+        border-radius: 0.5rem;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #1f1509 !important;
+        transform: translateY(-2px);
+      }
+
+      .dropdown-menu {
+        background-color: #f1d8b4;
+      }
+
+      .dropdown-item {
+        color: #3e2c14;
+        font-weight: 500;
+      }
+
+      .dropdown-item:hover {
+        background-color: #f5f5dc;
+        color: #1f1509;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><b>DHAWAN'S FURNITURE</b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Center Navbar Links -->
+          <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="home_page"><B>Home</B></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Allproducts' %}"><b>All Products</b></a>
+            </li>
+            {% for i in cat %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'filterproducts' name=i.category %}"><b>{{i.category}}</b></a>
+            </li>
+            {% endfor %}
+          </ul>
+
+          <!-- Right Side Links -->
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="myorder">My Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact_us">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="{% url 'login' %}">Log out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

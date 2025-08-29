@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Razorpay Payment</title>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+<h2>Pay with Razorpay</h2>
+<button onclick="payNow()">Pay Now</button>
+<script>
+    function payNow() {
+var options = {
+"key": "rzp_test_q10M6Qqv26cAcF", // Replace with your Razorpay Test Key
+"amount": 100*{{amount}}, // Amount in paisa (10000 = 100 INR)
+"currency": "INR",
+"name": "My Website",
+"description": "Test Payment",
+"handler": function (response) {
+alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+// Send payment details to Django
+fetch("/save_payment/", { // Django API URL
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify({
+payment_id: response.razorpay_payment_id,
+amount: 10000,
+status: "Success"
+})
+})
+.then(res => res.json())
+.then(data => console.log("Payment Saved:", data))
+.catch(error => console.error("Error:", error));
+}
+};
+var rzp = new Razorpay(options);
+rzp.open();
+}
+</script>
+</body>
+</html>

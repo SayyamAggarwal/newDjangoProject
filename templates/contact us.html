@@ -1,0 +1,157 @@
+{% include 'navbar.html' %}
+
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us - Dhawan Furniture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .header-section {
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        color: white;
+        position: relative;
+        overflow: hidden;
+        padding: 80px 0;
+      }
+      .header-section::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 80px;
+        height: 4px;
+        background-color: white;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+      .section-title {
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+      .btn-custom {
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+      .btn-custom:hover {
+        background: linear-gradient(135deg, #feb47b, #ff7e5f);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(255, 126, 95, 0.5);
+      }
+      .form-control {
+        border-radius: 10px;
+      }
+      iframe {
+        border-radius: 10px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+      .info-icon {
+        background-color: #17a2b8;
+        color: #fff;
+        padding: 8px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+      footer hr {
+        border-color: rgba(255,255,255,0.2);
+      }
+      footer marquee {
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Header section -->
+    <div class="header-section text-center">
+      <div class="container">
+        <h1 class="display-5 fw-bold mb-2">📞 Contact Us</h1>
+        <p class="lead">We'd love to hear from you! Reach out to us anytime.</p>
+        <p>Home &gt; Contact Us</p>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d54360.60886229191!2d74.7935520486328!3d31.6191154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdhawan%20furniture%20amritsar!5e0!3m2!1sen!2sin!4v1751089655237!5m2!1sen!2sin" width="100%" height="500" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+     <!-- Contact forms -->
+<div class="row mt-5">
+  <div class="col-md-6">
+    <h4><b>Comment Us</b></h4>
+ <form method="POST" action="{% url 'contact_us' %}" class="mt-4">
+  {% csrf_token %}
+  <input type="text" name="nm" placeholder="Your Name" class="form-control mb-3" required>
+  <input type="email" name="em" placeholder="Your Email" class="form-control mb-3" required>
+  <textarea name="msg" placeholder="Your Message" class="form-control mb-3" rows="3" required></textarea>
+  <input type="tel" name="ph" placeholder="Your Phone Number" class="form-control mb-3" required>
+  <button type="submit" class="btn btn-custom">Send Message</button>
+</form>
+
+  </div>
+
+  <div class="col-md-6">
+    <h4><b>Contact Information</b></h4>
+    <p class="text-secondary mt-3">
+      Furniture encompasses a wide range of movable objects designed to support human activities within a space...
+    </p>
+    <p class="text-secondary">
+      Furniture serves several key purposes. It provides comfort and support...
+    </p>
+    <p><i class="bi bi-geo-alt-fill info-icon"></i> Dhawan Furniture, Shakti Nagar, Amritsar, Punjab 143006</p>
+    <p><i class="bi bi-envelope-fill info-icon"></i> krishnamdhawan6@gmail.com</p>
+    <p><i class="bi bi-telephone-fill info-icon"></i> +91 98760 25744</p>
+  </div>
+</div>
+
+    <!-- Newsletter -->
+    <div class="bg-light text-center py-5">
+      <h3 style="color: #ff7e5f;"><b>Sign Up to Newsletter</b></h3>
+      <p>Subscribe to our mailing list & get latest arrivals, discounts & special offers!</p>
+      <form class="d-flex justify-content-center mt-3">
+        <input type="email" placeholder="Enter your email..." class="form-control w-50 me-2">
+        <button type="submit" class="btn btn-custom">Subscribe</button>
+      </form>
+    </div><br>
+    
+    {% include 'footer2.html' %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
