@@ -12,13 +12,13 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os 
-import whitenoise
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 x=os.path.join(BASE_DIR,'templates')
 MEDIA_DIR=os.path.join(BASE_DIR,"MEDIA_DIR")
 STATIC_DIR=os.path.join(BASE_DIR,"Static")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -28,8 +28,10 @@ SECRET_KEY = "django-insecure-0d*gtlo4*r_hc#n3)d(xhqeu0bs569wck%vk)%8a6*qy%7mm5a
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+STATIC_ROOT=os.path.join(BASE_DIR,"staticfiles")
+STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-ALLOWED_HOSTS = ['125.62.127.5','localhost','127.0.0.1']
+ALLOWED_HOSTS = ["*",'125.62.127.5','localhost','127.0.0.1']
 
 
 # Application definition

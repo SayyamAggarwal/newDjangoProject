@@ -4,3 +4,4 @@ whitenoise
 pandas 
 requests
 Pillow
+razorpay
