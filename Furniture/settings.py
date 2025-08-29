@@ -16,7 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 x=os.path.join(BASE_DIR,'templates')
-MEDIA_DIR=os.path.join(BASE_DIR,"MEDIA_DIR")
+MEDIA_DIR=os.path.join(BASE_DIR,"media")
 STATIC_DIR=os.path.join(BASE_DIR,"Static")
 
 
@@ -137,7 +137,7 @@ STATICFILES_DIRS=[STATIC_DIR]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_ROOT=MEDIA_DIR
-MEDIA_URL='/media/'
+MEDIA_URL='/media/*'
 
 RAZORPAY_KEY_ID = "rzp_test_q10M6Qqv26cAcF"
 RAZORPAY_KEY_SECRET = "OJqBxwl2r2m0BMxUJhInEzrZ"
