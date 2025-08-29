@@ -50,7 +50,7 @@ urlpatterns =[
     path('forgot_password/', views.forgot_password, name='forgot_password'),
     path('contact_us/', views.contact_us, name='contact_us'),
     path('home_page/', views.home_page, name='home_page'),
-
+    path("", include("myApp.urls"))
 ]
 urlpatterns+= staticfiles_urlpatterns()
 urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
