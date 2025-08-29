@@ -108,7 +108,7 @@
               <div class="row g-0">
                 <!-- Photo column -->
                 <div class="col-md-4">
-                  <img src="{{ i.product.Image.url }}" alt="{{ i.product.name }}" class="product-image">
+                  <img src="{% static i.product.image %}" alt="{{ i.product.name }}" class="product-image">
                 </div>
                 <!-- Details column -->
                 <div class="col-md-8">

@@ -1,4 +1,6 @@
 {% include 'navbar.html' %}
+{% load static %}
+<!-- <img src="{% static i.image %}" class="card-img-top img-fluid" alt="{{ i.name }}" style="object-fit: cover; height: 200px;"> -->
 
 <style>
     .btn-cart-btn.full-cart-btn {
@@ -70,7 +72,7 @@
         <div class="col-md-4">
             <div class="card h-100 shadow-sm rounded-4 overflow-hidden">
                 <a href="{% url 'detailproduct' id=i.id %}">
-                    <img src="{{i.Image.url}}" class="card-img-top img-fluid" alt="{{i.name}}" style="object-fit: cover; height: 200px;">
+                    <img src="{% static i.image %}" class="card-img-top img-fluid" alt="{{i.name}}" style="object-fit: cover; height: 200px;">
                 </a>
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title fw-bold">{{i.name}}</h5>
